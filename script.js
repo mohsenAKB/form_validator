@@ -60,9 +60,18 @@ function checkLength(input, min, max) {
     );
   }
 }
+function questionFromClient() {
+  Swal.fire({
+    title: "Error!",
+    text: "Do you want to continue",
+    icon: "error",
+    confirmButtonText: "Cool",
+  });
+}
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  questionFromClient();
   checkRequired([username, email, password, password2]);
   checkLength(username, 3, 15);
   checkLength(password, 6, 25);
